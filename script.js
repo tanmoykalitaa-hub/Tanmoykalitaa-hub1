@@ -48,27 +48,16 @@ function updateStars() {
     }
 }
 
+// --- THIS IS THE PART I FIXED FOR YOU ---
 const button = document.getElementById("valentinesButton");
 
 button.addEventListener("click", () => {
   if (button.textContent === "Click Me! ❤") {
-    button.textContent = "loading...";
-    fetch('send_mail.php')
-      .then(response => {
-        if (response.ok) {
-          button.textContent = "Check Your Email 🙃";
-        } else {
-          console.error('Failed to send email');
-          button.textContent = "Error 😞";
-        }
-      })
-      .catch(error => {
-        // Handle network errors or other issues
-        console.error('Error:', error);
-        button.textContent = "Error 😞";
-      });
+    // No email, no music, just a cute message!
+    button.textContent = "I knew you would say Yes! ❤️"; 
   }
 });
+// ----------------------------------------
 
 function drawTextWithLineBreaks(lines, x, y, fontSize, lineHeight) {
     lines.forEach((line, index) => {
@@ -212,7 +201,7 @@ function drawText() {
 
     if(frameNumber >= 3000 && frameNumber < 99999){
         context.fillStyle = `rgba(45, 45, 255, ${thirdOpacity})`;
-        // THIS IS THE PART I CHANGED FOR YOU:
+        // THIS IS THE QUESTION FOR MAINA
         context.fillText("Will you be my Valentine, Maina <3?", canvas.width/2, (canvas.height/2 + 120));
         thirdOpacity = thirdOpacity + 0.01;
 
